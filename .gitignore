@@ -1,0 +1,14 @@
+# Données (trop volumineuses pour Git)
+data/raw/*.csv
+data/bronze/
+data/silver/
+data/gold/
+
+# Environnement Python
+venv/
+__pycache__/
+*.pyc
+
+# Logs
+logs/
+*.log
