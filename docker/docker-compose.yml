@@ -25,3 +25,14 @@ services:
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092
     depends_on:
       - kafka
+
+  spark:
+    image: apache/spark:3.5.0
+    container_name: spark
+    volumes:
+      - ../spark_jobs:/opt/spark_jobs
+      - ../data:/opt/data
+    working_dir: /opt/spark_jobs
+    entrypoint: ["sleep", "infinity"]
+    depends_on:
+      - kafka

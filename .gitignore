@@ -3,6 +3,7 @@ data/raw/*.csv
 data/bronze/
 data/silver/
 data/gold/
+data/bronze_checkpoint/
 
 # Environnement Python
 venv/
