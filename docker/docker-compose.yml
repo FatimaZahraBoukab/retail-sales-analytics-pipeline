@@ -36,3 +36,18 @@ services:
     entrypoint: ["sleep", "infinity"]
     depends_on:
       - kafka
+
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=retail
+      - POSTGRES_PASSWORD=retail
+      - POSTGRES_DB=retail_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
