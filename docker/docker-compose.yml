@@ -49,5 +49,24 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: airflow
+    user: "0"
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+    ports:
+      - "8081:8080"
+    volumes:
+      - ../dags:/opt/airflow/dags
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: standalone
+    depends_on:
+      - spark
+
 volumes:
   postgres_data:

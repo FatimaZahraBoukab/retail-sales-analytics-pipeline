@@ -16,6 +16,7 @@ query = bronze.writeStream \
     .option("path", "/opt/data/bronze") \
     .option("checkpointLocation", "/opt/data/bronze_checkpoint") \
     .outputMode("append") \
+    .trigger(availableNow=True) \
     .start()
 
 query.awaitTermination()
