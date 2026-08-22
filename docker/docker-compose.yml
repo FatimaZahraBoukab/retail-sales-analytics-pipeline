@@ -68,5 +68,16 @@ services:
     depends_on:
       - spark
 
+
+  grafana:
+    image: grafana/grafana:11.0.0
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - postgres
+
 volumes:
   postgres_data:
